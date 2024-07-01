@@ -19,12 +19,12 @@ In the default topology, the following Control Node and Switch VMs are created:
 graph TD
     CN[Control Node]
 
-    S1[Spine 1]
-    S2[Spine 2]
+    S1([Spine 1])
+    S2([Spine 2])
 
-    L1[MCLAG Leaf 1]
-    L2[MCLAG Leaf 2]
-    L3[Leaf 3]
+    L1([MCLAG Leaf 1])
+    L2([MCLAG Leaf 2])
+    L3([Leaf 3])
 
     CN --> L1
     CN --> L2
@@ -35,14 +35,16 @@ graph TD
     S2 --> L3
 ```
 
-As well as the following test servers:
+As well as the following test servers, for the complete picture:
 
 ```mermaid
 graph TD
-    L1[MCLAG Leaf 1]
-    L2[MCLAG Leaf 2]
-    L3[Leaf 3]
-    L4[Leaf 4]
+    L1([MCLAG Leaf 1])
+    L2([MCLAG Leaf 2])
+    L3([Leaf 3])
+    L4([Leaf 4])
+    S1([Spine 1])
+    S2([Spine 2])
 
     TS1[Test Server 1]
     TS2[Test Server 2]
@@ -62,6 +64,11 @@ graph TD
 
     TS5 --> L3
     TS6 --> L4
+
+    L1 <--> S1
+    L2 <--> S1
+    L2 <--> S2
+    L3 <--> S2
 ```
 
 ## Creating and attaching VPCs
